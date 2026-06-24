@@ -1,0 +1,276 @@
+import React, { useState } from 'react';
+import { Phone, MapPin, Clock, Search, Pill, Heart, Users, Stethoscope } from 'lucide-react';
+
+export default function PaulPharmacy() {
+  const [searchMedicine, setSearchMedicine] = useState('');
+  const [activeTab, setActiveTab] = useState('all');
+
+  const generalDoctors = [
+    { id: 1, name: 'Dr. Arif Mazumber', qualification: 'MD, General Medicine', experience: '12 years', rating: 4.8 },
+    { id: 2, name: 'Dr. Nilanko Ghosh', qualification: 'MD, Physician', experience: '10 years', rating: 4.7 },
+    { id: 3, name: 'Dr. Kamal Debnath', qualification: 'MD, General Practice', experience: '15 years', rating: 4.9 }
+  ];
+
+  const specialists = [
+    { id: 4, name: 'Dr. Shamim Ahmed', specialty: 'Cardiology', qualification: 'DM, Cardiology', experience: '18 years', rating: 4.9 },
+    { id: 5, name: 'Dr. Animesh Paul', specialty: 'Orthopedics', qualification: 'MS, Orthopedics', experience: '14 years', rating: 4.8 },
+    { id: 6, name: 'Dr. Ashim Roy', specialty: 'Dermatology', qualification: 'MD, Dermatology', experience: '11 years', rating: 4.7 }
+  ];
+
+  const clinics = [
+    { id: 1, name: 'Smile Care Clinic', location: 'NS Road', services: ['Dental', 'General Clinic', 'Medicines'], phone: '9435078512' },
+    { id: 2, name: 'City Medicare', location: 'NS Road Vicinity', services: ['Medical Services', 'Pharmacy', 'Lab Tests'], phone: '9435078512' }
+  ];
+
+  const medicines = [
+    { id: 1, name: 'Aspirin 500mg', type: 'Pain Relief', price: '₹25-40', uses: 'Headache, Fever' },
+    { id: 2, name: 'Cough Syrup', type: 'Respiratory', price: '₹60-100', uses: 'Dry & Wet Cough' },
+    { id: 3, name: 'Vitamin D3', type: 'Supplement', price: '₹100-200', uses: 'Bone Health' },
+    { id: 4, name: 'Antacid Tablet', type: 'Digestive', price: '₹15-30', uses: 'Acidity, Gas' },
+    { id: 5, name: 'Antibiotic 250mg', type: 'Infection', price: '₹80-150', uses: 'Bacterial Infections' },
+    { id: 6, name: 'Blood Pressure Medicine', type: 'Cardiac', price: '₹120-250', uses: 'Hypertension' }
+  ];
+
+  const handleConsult = () => {
+    alert('Call 9435078512 for consultation\nConsultation Fee: ₹500');
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white shadow-md">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="bg-gradient-to-br from-blue-600 to-green-600 p-2 rounded-lg">
+              <Pill className="text-white" size={32} />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+                Paul Pharmacy
+              </h1>
+              <p className="text-xs text-gray-500">Your Trusted Health Partner</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <Phone className="text-green-600 cursor-pointer hover:scale-110 transition" size={24} onClick={handleConsult} />
+            <span className="text-sm font-semibold text-gray-700">9435078512</span>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-green-600 text-white py-16 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-5xl font-bold mb-4">Consult Doctors Online</h2>
+          <p className="text-xl mb-8 text-blue-100">Expert Medical Care & Pharmacy Services at Your Fingertips</p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <button onClick={handleConsult} className="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition transform hover:scale-105">
+              Book Consultation - ₹500
+            </button>
+            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-green-600 transition">
+              Learn More
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+          <Stethoscope className="text-blue-600 mb-4" size={40} />
+          <h3 className="text-xl font-bold mb-2">Expert Doctors</h3>
+          <p className="text-gray-600">Qualified physicians and specialists available for consultation</p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+          <Heart className="text-red-500 mb-4" size={40} />
+          <h3 className="text-xl font-bold mb-2">Quality Care</h3>
+          <p className="text-gray-600">Trusted medical professionals with years of experience</p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+          <Pill className="text-green-600 mb-4" size={40} />
+          <h3 className="text-xl font-bold mb-2">Pharmacy</h3>
+          <p className="text-gray-600">Complete range of medicines available</p>
+        </div>
+      </section>
+
+      {/* General Doctors */}
+      <section className="max-w-6xl mx-auto px-4 py-12">
+        <h2 className="text-4xl font-bold mb-2 text-gray-800">General Physicians</h2>
+        <p className="text-gray-600 mb-8">Experienced doctors for your day-to-day health concerns</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {generalDoctors.map(doctor => (
+            <div key={doctor.id} className="bg-white rounded-lg shadow-md hover:shadow-xl transition border-l-4 border-blue-600 p-6">
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800">{doctor.name}</h3>
+                  <p className="text-sm text-blue-600 font-semibold">{doctor.qualification}</p>
+                </div>
+                <div className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-bold">
+                  ⭐ {doctor.rating}
+                </div>
+              </div>
+              <p className="text-gray-600 text-sm mb-4">Experience: {doctor.experience}</p>
+              <button 
+                onClick={handleConsult}
+                className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition"
+              >
+                Book Appointment
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Specialists */}
+      <section className="max-w-6xl mx-auto px-4 py-12 bg-green-50 -mx-4 px-4 my-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold mb-2 text-gray-800">Specialists</h2>
+          <p className="text-gray-600 mb-8">Specialized care for specific health conditions</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {specialists.map(doctor => (
+              <div key={doctor.id} className="bg-white rounded-lg shadow-md hover:shadow-xl transition border-l-4 border-green-600 p-6">
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800">{doctor.name}</h3>
+                    <p className="text-sm text-green-600 font-semibold">{doctor.specialty}</p>
+                    <p className="text-xs text-gray-500">{doctor.qualification}</p>
+                  </div>
+                  <div className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-bold">
+                    ⭐ {doctor.rating}
+                  </div>
+                </div>
+                <p className="text-gray-600 text-sm mb-4">Experience: {doctor.experience}</p>
+                <button 
+                  onClick={handleConsult}
+                  className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition"
+                >
+                  Consult Now
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nearby Clinics */}
+      <section className="max-w-6xl mx-auto px-4 py-12">
+        <h2 className="text-4xl font-bold mb-2 text-gray-800">Nearby Medical Hubs</h2>
+        <p className="text-gray-600 mb-8">Specialized clinics with medicines and medical services near NS Road</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {clinics.map(clinic => (
+            <div key={clinic.id} className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-lg shadow-md hover:shadow-xl transition p-6 border-l-4 border-amber-600">
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="text-2xl font-bold text-gray-800">{clinic.name}</h3>
+                <MapPin className="text-orange-600" size={24} />
+              </div>
+              <p className="text-gray-600 mb-3 flex items-center gap-2">
+                <MapPin size={18} className="text-orange-600" />
+                {clinic.location}
+              </p>
+              <div className="mb-4">
+                <p className="text-sm font-semibold text-gray-700 mb-2">Services:</p>
+                <div className="flex flex-wrap gap-2">
+                  {clinic.services.map((service, idx) => (
+                    <span key={idx} className="bg-orange-200 text-orange-800 text-xs px-3 py-1 rounded-full font-semibold">
+                      {service}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <button 
+                onClick={() => alert(`Call ${clinic.phone} to book appointment`)}
+                className="w-full bg-amber-600 text-white py-2 rounded-lg font-semibold hover:bg-amber-700 transition flex items-center justify-center gap-2"
+              >
+                <Phone size={18} />
+                {clinic.phone}
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Medicines Search */}
+      <section className="max-w-6xl mx-auto px-4 py-12 bg-blue-50 -mx-4 px-4 my-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold mb-2 text-gray-800">Our Pharmacy</h2>
+          <p className="text-gray-600 mb-8">Wide range of medicines available</p>
+          
+          {/* Search Bar */}
+          <div className="mb-8 relative">
+            <Search className="absolute left-4 top-4 text-gray-400" size={20} />
+            <input
+              type="text"
+              placeholder="Search medicines..."
+              value={searchMedicine}
+              onChange={(e) => setSearchMedicine(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 rounded-lg border-2 border-gray-300 focus:border-blue-600 focus:outline-none"
+            />
+          </div>
+
+          {/* Medicine Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {medicines
+              .filter(med => med.name.toLowerCase().includes(searchMedicine.toLowerCase()))
+              .map(medicine => (
+                <div key={medicine.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 border-t-4 border-blue-600">
+                  <h3 className="text-lg font-bold text-gray-800 mb-2">{medicine.name}</h3>
+                  <div className="space-y-2 mb-4">
+                    <p className="text-sm text-gray-600"><span className="font-semibold">Type:</span> {medicine.type}</p>
+                    <p className="text-sm text-gray-600"><span className="font-semibold">Uses:</span> {medicine.uses}</p>
+                    <p className="text-sm text-green-600 font-bold">Price: {medicine.price}</p>
+                  </div>
+                  <button className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+                    Add to Cart
+                  </button>
+                </div>
+              ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-green-600 text-white py-16 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-4">Need Medical Consultation?</h2>
+          <p className="text-xl mb-8">Call our experts today for personalized healthcare advice</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button 
+              onClick={handleConsult}
+              className="bg-white text-blue-600 px-12 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition transform hover:scale-105"
+            >
+              📞 Call: 9435078512
+            </button>
+            <p className="text-blue-100 text-lg">Consultation Fee: <span className="font-bold text-white">₹500</span></p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12 px-4">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+              <Pill size={24} className="text-green-500" />
+              Paul Pharmacy
+            </h3>
+            <p className="text-gray-400">Your trusted healthcare partner</p>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Quick Links</h4>
+            <ul className="text-gray-400 space-y-2">
+              <li><a href="#" className="hover:text-white transition">Doctors</a></li>
+              <li><a href="#" className="hover:text-white transition">Medicines</a></li>
+              <li><a href="#" className="hover:text-white transition">Clinics</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Contact</h4>
+            <p className="text-gray-400">📞 9435078512</p>
+            <p className="text-gray-400 text-sm">📍 NS Road Area</p>
+          </div>
+        </div>
+        <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
+          <p>&copy; 2024 Paul Pharmacy. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
